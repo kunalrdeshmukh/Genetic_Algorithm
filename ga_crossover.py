@@ -10,21 +10,36 @@ def complement_of(char):
         return 'G'
     elif char == 'G':
         return 'C'
+    elif char == 'Y':
+        return 'R'
+    elif char == 'R':
+        return 'Y'
+    elif char == 'W':
+        return 'W'
+    elif char == 'S':
+        return 'S'
+    elif char == 'K':
+        return 'M'
+    elif char == 'M':
+        return 'K'
+    elif char == 'N':
+        return 'N'
 
 def crossover(dna):
     dna_complement = []
     dna = list(dna)
+   
     for ele in dna:
         dna_complement.append(complement_of(ele))
+    
     dna_complement = ''.join(dna_complement)
-    pos = random.randint(1,len(dna)-1)
+    pos = random.randint(0,len(dna)-1)
     cross_len = random.randint(0,len(dna)-pos)
-    print(pos)
-    print(cross_len)
+   
     curr_pos = pos 
     for i in range(cross_len):
         dna[curr_pos] = dna_complement[curr_pos]
         curr_pos += 1
     dna = ''.join(dna)
-    print (dna,pos+1,cross_len)
+  
     return(dna,pos+1,cross_len)
